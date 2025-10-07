@@ -11,7 +11,7 @@ export default async function handler(req, res) {
 
   try {
     const body = req.body;
-    const webhookUrl = 'https://33328-ekmil.s2.irann8n.com/webhook-test/26d7f28c-00fa-4f2a-870f-8ae2a7a6e97f';
+   const webhookUrl = 'https://33328-ekmil.s2.irann8n.com/webhook/26d7f28c-00fa-4f2a-870f-8ae2a7a6e97f';
 
     const resp = await fetch(webhookUrl, {
       method: 'POST',
