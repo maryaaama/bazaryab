@@ -20,7 +20,7 @@ export default function SendLink({ onSuccess }) {
     return () => clearTimeout(timer);
   }, [success, error]);
 
-  const handleSubmit = async (e) => {
+ /**const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     setSuccess(false);
@@ -56,7 +56,49 @@ export default function SendLink({ onSuccess }) {
     } finally {
       setLoading(false);
     }
-  };
+  };**/
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  setLoading(true);
+  setSuccess(false);
+  setError(false);
+  setErrorMessage("");
+
+  try {
+    if (!linkInput || !linkInput.trim()) {
+      throw new Error("لطفاً یک لینک معتبر وارد کنید");
+    }
+
+    // مرحله 1: پاک کردن رکوردهای قبلی
+    const clearRes = await fetch("/api/clear", { method: "DELETE" });
+    if (!clearRes.ok) {
+      const errText = await clearRes.text();
+      throw new Error(errText || "حذف رکوردهای قبلی ناموفق بود");
+    }
+
+    // مرحله 2: ارسال لینک به n8n
+    const sendRes = await fetch("/api/auth/send-to-n8n", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ link: linkInput.trim() })
+    });
+
+    if (!sendRes.ok) {
+      const errText = await sendRes.text();
+      throw new Error(errText || "ارسال لینک به n8n ناموفق بود");
+    }
+
+    setSuccess(true);
+    setLinkInput("");
+    if (onSuccess) onSuccess();
+  } catch (err) {
+    console.error(err);
+    setError(true);
+    setErrorMessage(err.message || "خطای ناشناخته رخ داد");
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <div className="w-full max-w-6xl mx-auto mt-16 mb-8 px-4 md:px-6 text-center animate-fade-in">

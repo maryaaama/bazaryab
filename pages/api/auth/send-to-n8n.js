@@ -10,9 +10,9 @@ export default async function handler(req, res) {
       return res.status(400).json({ error: "Invalid link" });
     }
 
-    // Active Webhook n8n  //       https://33328-ekmil.s2.irann8n.com/webhook/1f23c25b-0b43-46f5-9e5a-a5c77ae00738
+    // Active Webhook n8n  //  https://33328-ekmil.s2.irann8n.com/webhook-test/1f23c25b-0b43-46f5-9e5a-a5c77ae00738
     const n8nWebhookUrl =
-     "https://33328-ekmil.s2.irann8n.com/webhook-test/1f23c25b-0b43-46f5-9e5a-a5c77ae00738";
+     "https://33328-ekmil.s2.irann8n.com/webhook/1f23c25b-0b43-46f5-9e5a-a5c77ae00738";
 
 
     const username = "admin"; // اگر Basic Auth داری
