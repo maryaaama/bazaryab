@@ -20,43 +20,6 @@ export default function SendLink({ onSuccess }) {
     return () => clearTimeout(timer);
   }, [success, error]);
 
- /**const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    setSuccess(false);
-    setError(false);
-    setErrorMessage("");
-
-    try {
-      if (!linkInput || !linkInput.trim()) {
-        throw new Error("لطفاً یک لینک معتبر وارد کنید");
-      }
-      console.log(linkInput);
-      const sendRes = await fetch("/api/auth/send-to-n8n", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        
-        body: JSON.stringify({ link: linkInput.trim() })
-      });
-
-      if (!sendRes.ok) {
-        const errText = await sendRes.text();
-        throw new Error(errText || "ارسال لینک به n8n ناموفق بود");
-      }
-
-      setSuccess(true);
-      setLinkInput("");
-      if (onSuccess) onSuccess();
-    } catch (err) {
-      console.error(err);
-      setError(true);
-      setErrorMessage(err.message || "خطای ناشناخته رخ داد");
-    } finally {
-      setLoading(false);
-    }
-  };**/
 const handleSubmit = async (e) => {
   e.preventDefault();
   setLoading(true);

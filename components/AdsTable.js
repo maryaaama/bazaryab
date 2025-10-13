@@ -3,7 +3,7 @@ import React from "react";
 
 export default function AdsTable({ ads }) {
   return (
-    <div className="overflow-x-auto bg-[#091324] p-4 rounded-xl shadow-lg border border-cyan-400">
+    <div className="overflow-x-auto bg-gradient-to-b from-[#050010] to-[#0a0220] px-4 pb-6 pt-4 rounded-xl shadow-lg border border-cyan-500/40">
       <table className="min-w-full text-sm text-gray-200 font-[Vazirmatn]">
         <thead>
           <tr className="text-cyan-300 border-b border-cyan-500">

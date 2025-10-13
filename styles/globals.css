@@ -1,10 +1,21 @@
 @import "tailwindcss";
 
-
+@font-face {
+  font-family: 'Vazirmatn';
+  src: url('/fonts/vazirmatn/Vazirmatn-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Vazirmatn';
+  src: url('/fonts/vazirmatn/Vazirmatn-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-display: swap;
+}
 html, body {
-  background: radial-gradient(circle at 20% 20%, #06111f, #010812, #000);
+  background: radial-gradient(circle at 20% 20%, #050010, #090018, #000);
   color: #e5f4ff;
-  font-family: var(--font-geist-sans, sans-serif);
+  font-family: 'Vazirmatn', sans-serif;
   min-height: 100vh;
 }
 

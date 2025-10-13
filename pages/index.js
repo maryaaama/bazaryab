@@ -27,7 +27,6 @@ export default function Home() {
 
   useEffect(() => {
     if (!loadedOnce) {
-      console.log("Mount Home");
       fetchAds(); // یکبار بعد از لود صفحه
       setLoadedOnce(true);
     }
@@ -38,18 +37,18 @@ export default function Home() {
       <Header />
 
       {/* Hero Section */}
-      <section className="text-center pt-36 pb-12">
+      <section className="text-center pt-36 pb-6">
         <h1 className="text-3xl font-bold text-cyan-300 mb-4">
           سامانه مدیریت و جستجوی آگهی
         </h1>
-        <p className="font-[Vazirmatn] text-gray-200 text-lg leading-relaxed max-w-2xl mx-auto mb-6">
+        <p className="font-[Vazirmatn] text-gray-200 text-lg leading-relaxed max-w-2xl mx-auto mb-4">
           در این صفحه فقط ۲۰ آگهی اول نمایش داده می‌شود. برای مشاهده جزئیات، فیلتر کردن یا ورود به صفحه هر آگهی وارد شوید.
         </p>
       </section>
 
       {/* ارسال لینک سریع */}
       <div className="px-6 max-w-4xl mx-auto mb-8">
-        <SendLink />
+         <SendLink onSuccess={fetchAds} />
       </div>
 
       {/* نمایش آگهی‌ها */}
