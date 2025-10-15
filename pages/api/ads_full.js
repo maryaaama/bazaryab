@@ -17,7 +17,7 @@ export default async function handler(req, res) {
     // ستون‌ها را کامل انتخاب می‌کنیم
     const { data, error } = await supabase
       .from("ads_full")
-      .select("title, info, location, price, status, phone_number, seen_by, url")
+      .select("id ,title, info, location, price, status, phone_number, seen_by, url")
       .order("created_at", { ascending: false })
       .limit(25);
 

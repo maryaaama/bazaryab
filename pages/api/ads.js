@@ -16,7 +16,7 @@ export default async function handler(req, res) {
 
     const { data, error } = await supabase
       .from("ads")
-      .select("title, info, location, url")
+      .select("id ,title, info, location, url")
       .limit(22);
 
     if (error) throw error;
